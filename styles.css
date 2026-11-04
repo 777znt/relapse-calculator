@@ -1,0 +1,202 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: #000;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #fff;
+}
+
+.calculator-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  background: #000;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+.calculator {
+  width: 100%;
+  max-width: 420px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 3.5% 4%;
+  background: #000;
+}
+
+/* Larger screens – clean rectangular layout */
+@media (min-width: 500px) {
+  .calculator {
+    max-height: min(95vh, 860px);
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+@media (min-width: 900px) {
+  .calculator {
+    max-width: 400px;
+  }
+}
+
+.display-container {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 0 4% 6%;
+  min-height: 140px;
+}
+
+.display {
+  width: 100%;
+  text-align: right;
+  font-size: clamp(48px, 14vw, 92px);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #fff;
+  transition: font-size 0.1s ease;
+}
+
+/* Smaller + multi-line friendly when showing lyrics */
+.display.special {
+  font-size: clamp(18px, 5.2vw, 28px);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.35;
+  white-space: normal;
+  text-align: right;
+  word-break: break-word;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3.2%;
+  aspect-ratio: 1 / 1.18;
+  width: 100%;
+}
+
+.btn {
+  border: none;
+  border-radius: 50%;
+  font-size: clamp(28px, 7.5vw, 38px);
+  font-weight: 400;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: filter 0.1s ease, transform 0.05s ease, background 0.15s ease, color 0.15s ease;
+  position: relative;
+  aspect-ratio: 1;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.btn:active {
+  filter: brightness(1.35);
+  transform: scale(0.96);
+}
+
+/* Number buttons */
+.btn.number {
+  background: #333333;
+  color: #fff;
+}
+
+/* Function buttons (AC, ±, %) */
+.btn.function {
+  background: #a5a5a5;
+  color: #000;
+  font-size: clamp(24px, 6.5vw, 32px);
+  font-weight: 500;
+}
+
+/* Operator buttons */
+.btn.operator {
+  background: #ff9500;
+  color: #fff;
+  font-size: clamp(32px, 8.5vw, 42px);
+}
+
+.btn.equals {
+  background: #ff9500;
+}
+
+/* Active operator state (iOS style highlight) */
+.btn.operator.active {
+  background: #fff;
+  color: #ff9500;
+}
+
+/* Zero button spans 2 columns – pill shape */
+.btn.zero {
+  grid-column: span 2;
+  border-radius: 999px;
+  aspect-ratio: auto;
+  justify-content: flex-start;
+  padding-left: 22%;
+}
+
+/* Responsive tweaks for very small screens */
+@media (max-width: 360px) {
+  .display {
+    font-size: clamp(40px, 13vw, 70px);
+  }
+  .display.special {
+    font-size: clamp(15px, 4.5vw, 22px);
+  }
+  .btn {
+    font-size: clamp(24px, 7vw, 32px);
+  }
+  .btn.function {
+    font-size: clamp(20px, 5.5vw, 26px);
+  }
+}
+
+/* Landscape phones */
+@media (orientation: landscape) and (max-height: 500px) {
+  .calculator {
+    max-width: min(70vh, 420px);
+    max-height: 100%;
+    padding-bottom: 2%;
+  }
+  .display-container {
+    min-height: 60px;
+    padding-bottom: 3%;
+  }
+  .display {
+    font-size: clamp(36px, 12vh, 64px);
+  }
+  .display.special {
+    font-size: clamp(14px, 4.5vh, 20px);
+  }
+  .buttons {
+    aspect-ratio: 1 / 1.05;
+    gap: 2.5%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .calculator {
+    max-width: 400px;
+    max-height: 780px;
+  }
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="theme-color" content="#000000" />
+  <title>Calculator</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="calculator-wrapper">
+    <div class="calculator">
+      <div class="display-container">
+        <div id="display" class="display">0</div>
+      </div>
+      <div class="buttons">
+        <button class="btn function" data-action="clear">AC</button>
+        <button class="btn function" data-action="plus-minus">±</button>
+        <button class="btn function" data-action="percent">%</button>
+        <button class="btn operator" data-action="divide">÷</button>
+
+        <button class="btn number" data-value="7">7</button>
+        <button class="btn number" data-value="8">8</button>
+        <button class="btn number" data-value="9">9</button>
+        <button class="btn operator" data-action="multiply">×</button>
+
+        <button class="btn number" data-value="4">4</button>
+        <button class="btn number" data-value="5">5</button>
+        <button class="btn number" data-value="6">6</button>
+        <button class="btn operator" data-action="subtract">−</button>
+
+        <button class="btn number" data-value="1">1</button>
+        <button class="btn number" data-value="2">2</button>
+        <button class="btn number" data-value="3">3</button>
+        <button class="btn operator" data-action="add">+</button>
+
+        <button class="btn number zero" data-value="0">0</button>
+        <button class="btn number" data-value=".">.</button>
+        <button class="btn operator equals" data-action="equals">=</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden video element for the .mp4 song -->
+  <video id="song" src="relapse/song.mp4" preload="auto" playsinline style="display:none;"></video>
+
+  <script src="script.js"></script>
+</body>
+</html>
